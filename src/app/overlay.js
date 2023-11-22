@@ -59,4 +59,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
   </div>
 ));
 
+Overlay.displayName = 'Overlay'; // Add this line at the end of your component
+
+
 export default Overlay;
