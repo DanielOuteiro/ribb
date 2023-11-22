@@ -24,7 +24,7 @@ export default function Model({ scroll, ...props }) {
     castShadow: true,
     "material-envMapIntensity": 0.2,
   };
-  useEffect(() => void (actions["CameraAction.005"].play().paused = true), []);
+  useEffect(() => void (actions["CameraAction.005"].play().paused = true), [actions]);
   useEffect(() => {
     if (hovered)
       group.current.getObjectByName(hovered).material.color.set("white");
@@ -148,6 +148,7 @@ export default function Model({ scroll, ...props }) {
       </group>
     </group>
   );
+  Model.displayName = 'Model';
 }
 
 useGLTF.preload("/model.glb");
