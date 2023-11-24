@@ -18,9 +18,12 @@ export default function Model({ scroll, ...props }) {
   const extras = {
     receiveShadow: true,
     castShadow: true,
-    "material-envMapIntensity": 0.2,
+    "material-envMapIntensity": 0.4,
   };
-  useEffect(() => void (actions["CameraAction.005"].play().paused = true), [actions]);
+  useEffect(
+    () => void (actions["CameraAction.005"].play().paused = true),
+    [actions]
+  );
   useEffect(() => {
     if (hovered)
       group.current.getObjectByName(hovered).material.color.set("white");
@@ -34,7 +37,7 @@ export default function Model({ scroll, ...props }) {
     );
     group.current.children[0].children.forEach((child, index) => {
       child.material.color.lerp(
-        color.set(hovered === child.name ? "tomato" : "#202020"),
+        color.set(hovered === child.name ? "tomato" : "#050505"),
         hovered ? 0.1 : 0.05
       );
       const et = state.clock.elapsedTime;
@@ -76,9 +79,16 @@ export default function Model({ scroll, ...props }) {
           material={materials.BoltSteel}
           position={[-1.78, 2.04, 23.58]}
           scale={[4, 4, 4]}
-        >
-        </mesh>
+        ></mesh>
       </group>
+      <mesh position={[0, 18, 0]} rotation={[0, -10, 0]}>
+        <boxGeometry args={[10, 5.6, 0.1]} />
+        <meshBasicMaterial
+          map={new THREE.TextureLoader().load(
+            "https://assets.website-files.com/6270286528c9abce84701aa4/6283fc0ca293646dd35fab4c_10.png"
+          )}
+        />
+      </mesh>
       <group
         name="Camera"
         position={[-1.78, 2.04, 23.58]}
@@ -100,14 +110,14 @@ export default function Model({ scroll, ...props }) {
             shadow-camera-bottom={-8}
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
-            intensity={2}
+            intensity={3}
             shadow-bias={-0.0001}
           />
         </PerspectiveCamera>
       </group>
     </group>
   );
-  Model.displayName = 'Model';
+  Model.displayName = "Model";
 }
 
 useGLTF.preload("/model.glb");

@@ -15,7 +15,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
         <h1>From the smallest</h1>
         <p>
           <span style={{ opacity: 0.5 }}>ID:</span> RB12-FS-00663-02 <br />
-          <span style={{ opacity: 0.5 }}>Lifespan:</span> 89% <br />
+          <span style={{ opacity: 0.5 }}>Status:</span> Serviceable <br />
           <span style={{ opacity: 0.5 }}>Location:</span> 37.39525° N -77.74875°W
         </p>
       </div>
